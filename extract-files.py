@@ -35,7 +35,7 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    'vendor/bin/hw/android.hardware.security.keymint-service': blob_fixup()
+    ('vendor/bin/hw/android.hardware.security.keymint-service', 'vendor/lib64/libskeymint10device.so', 'vendor/lib64/libskeymint_cli.so'): blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
     'vendor/lib64/hw/gatekeeper.mdfpp.so': blob_fixup()
         .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
