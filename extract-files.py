@@ -4,6 +4,16 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from extract_utils.fixups_blob import (
+    blob_fixup,
+    blob_fixups_user_type,
+)
+from extract_utils.fixups_lib import (
+    lib_fixups,
+    lib_fixups_user_type,
+    lib_fixup_vendorcompat,
+    libs_proto_3_9_1,
+)
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
@@ -11,11 +21,28 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/samsung/a05s',
+    'hardware/qcom-caf/sm8550',
+    'hardware/qcom-caf/wlan',
+    'hardware/samsung',
+    'vendor/qcom/opensource/commonsys-intf/display',
+    'vendor/qcom/opensource/commonsys/display',
+    'vendor/qcom/opensource/dataservices',
+    'vendor/qcom/opensource/display',
 ]
+
+lib_fixups: lib_fixups_user_type = {
+    libs_proto_3_9_1: lib_fixup_vendorcompat,
+}
+
+blob_fixups: blob_fixups_user_type = {
+
+}
 
 module = ExtractUtilsModule(
     'a05s',
     'samsung',
+    blob_fixups=blob_fixups,
+    lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
 )
 
