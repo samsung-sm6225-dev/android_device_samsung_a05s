@@ -1,0 +1,5 @@
+# Audio
+ro.audio.ihaladaptervendorextension_enabled=true
+
+# DPM
+persist.vendor.dpm.feature=11
